@@ -1,0 +1,44 @@
+<%= render "nav" %>
+
+<div class="dashboard">
+
+  <div class="dashboard-header">
+    <h1>📦 Inventario</h1>
+
+    <div class="search-bar">
+      <%= form_with url: products_path, method: :get, local: true do %>
+        <input type="text" name="query" placeholder="Buscar producto..." value="<%= params[:query] %>" >
+      <% end %>
+
+      <%= link_to "Mostrar todos los productos", products_path if params[:query] %>
+    </div>
+
+    <%= link_to "Nuevo producto", new_product_path, class: "btn-primary" %>
+  </div>
+
+  <div class="cards">
+
+    <% @products.each do |product| %>
+      <div class="card">
+
+        <div class="card-header">
+          <h3><%= product.name %></h3>
+        </div>
+
+        <div class="card-body">
+          <p><strong>💲 Precio:</strong> S/ <%= product.price %></p>
+          <p><strong>📦 Stock:</strong> <%= product.stock %></p>
+          <p><strong>📅 Vence:</strong> <%= product.expiration_date %></p>
+        </div>
+
+        <div class="card-actions">
+          <%= link_to "Editar", edit_product_path(product), class: "btn-edit" %>
+          <%= button_to "Eliminar", product, method: :delete, data: { confirm: "¿Seguro?" }, class: "btn-delete" %>
+        </div>
+
+      </div>
+    <% end %>
+
+  </div>
+
+</div>

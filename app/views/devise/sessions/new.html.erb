@@ -1,0 +1,48 @@
+<section class="login-container">
+
+  <!-- Lado izquierdo -->
+  <div class="login-left">
+    <div class="brand">
+      <%= image_tag "medicine-main.png", width: "500px", height: "450px" %>
+      <h1>Farma<p>Inventary</p></h1>
+      <p class="brand-sub-text">Gestiona tu inventario de forma rápida y segura</p>
+    </div>
+  </div>
+
+  <!-- Lado derecho -->
+  <div class="login-right">
+    <div class="login-right-sub-container">
+      <div class="brand-second">
+        <%= image_tag "pill.png", width: "100px", height: "80px" %>
+        <h1>Farma<p>Inventary</p></h1>
+      </div>
+      <h2>Iniciar sesión</h2>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <div class="field">
+          <%= f.label :email, "Correo" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "ejemplo@gmail.com" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "Contraseña" %>
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "......" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="remember">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me, "Recordarme" %>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "Iniciar sesión" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+</section>

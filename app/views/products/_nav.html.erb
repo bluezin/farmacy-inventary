@@ -1,0 +1,22 @@
+<nav class="nav">
+  <div class="nav-brand">
+    <h1>Farma<p>Inventary</p></h1>
+  </div>
+  
+  <div class="nav-user">
+    <%= current_user.name %>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Círculo exterior -->
+      <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5"/>
+
+      <!-- Cabeza -->
+      <circle cx="12" cy="9" r="3" fill="white"/>
+
+      <!-- Cuerpo -->
+      <path d="M6 18c0-3 3-5 6-5s6 2 6 5" fill="white"/>
+    </svg>
+    |
+    <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete,data: { turbo_confirm: "¿Seguro?" }, class: "nav-destroy-user" %>
+  </div>
+</nav>

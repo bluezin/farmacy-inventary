@@ -1,0 +1,47 @@
+<%= render "nav" %>
+<div style="margin-top: 40px; padding-left: 20px">
+  <%= link_to "Ir a inicio", products_path, class: "btn-primary" %>
+</div>
+
+<div class="product-form-container">
+
+  <h2><%= @product.new_record? ? "Nuevo producto" : "Editar producto" %></h2>
+
+  <%= form_with(model: @product, local: true) do |f| %>
+
+    <% if @product.errors.any? %>
+      <div class="form-errors">
+        <ul>
+          <% @product.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name, "Nombre" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :price, "Precio" %>
+      <%= f.number_field :price, step: 0.01 %>
+    </div>
+
+    <div class="field">
+      <%= f.label :stock, "Stock" %>
+      <%= f.number_field :stock %>
+    </div>
+
+    <div class="field">
+      <%= f.label :expiration_date, "Fecha de vencimiento" %>
+      <%= f.date_field :expiration_date %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit @product.new_record? ? "Crear producto" : "Actualizar producto" %>
+    </div>
+
+  <% end %>
+</div>
