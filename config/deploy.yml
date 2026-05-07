@@ -110,7 +110,7 @@ accessories:
         # POSTGRES_PASSWORD: <%= ENV["FARMA_RAILS_DOCKER_PASSWORD"] %>
 #         MYSQL_ROOT_HOST: '%'
       secret:
-        - FARMA_RAILS_DATABASE_PASSWORD
+        - POSTGRES_PASSWORD
 #     files:
 #       - config/mysql/production.cnf:/etc/mysql/my.cnf
 #       - db/production.sql:/docker-entrypoint-initdb.d/setup.sql
