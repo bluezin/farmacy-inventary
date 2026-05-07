@@ -45,7 +45,7 @@ env:
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
     # When you start using multiple servers, you should split out job processing to a dedicated machine.
     SOLID_QUEUE_IN_PUMA: true
-    DB_HOST: farma_inventory-db
+    DB_HOST: farma_rails-db
 
     # Set number of processes dedicated to Solid Queue (default: 1)
     # JOB_CONCURRENCY: 3
@@ -105,8 +105,9 @@ accessories:
 #     port: "127.0.0.1:3306:3306"
     env:
       clear:
-        POSTGRES_DB: farma_inventory_production
-        POSTGRES_USER: postgres
+        POSTGRES_DB: farma_rails_production
+        POSTGRES_USER: farma_rails
+        # POSTGRES_PASSWORD: <%= ENV["FARMA_RAILS_DOCKER_PASSWORD"] %>
 #         MYSQL_ROOT_HOST: '%'
       secret:
         - FARMA_RAILS_DATABASE_PASSWORD
