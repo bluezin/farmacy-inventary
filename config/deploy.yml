@@ -106,7 +106,7 @@ accessories:
     env:
       clear:
         POSTGRES_DB: farma_rails_production
-        POSTGRES_USER: farma_rails
+        POSTGRES_USER: postgres
         # POSTGRES_PASSWORD: <%= ENV["FARMA_RAILS_DOCKER_PASSWORD"] %>
 #         MYSQL_ROOT_HOST: '%'
       secret:
