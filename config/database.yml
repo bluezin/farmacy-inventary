@@ -90,6 +90,7 @@ production:
     database: farma_rails_production
     username: farma_rails
     password: <%= ENV["FARMA_RAILS_DATABASE_PASSWORD"] %>
+    host: <%= ENV["DB_HOST"] %>
   cache:
     <<: *primary_production
     database: farma_rails_production_cache
