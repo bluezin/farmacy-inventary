@@ -88,7 +88,7 @@ production:
   primary: &primary_production
     <<: *default
     database: farma_rails_production
-    username: farma_rails
+    username: postgres
     password: <%= ENV["FARMA_RAILS_DATABASE_PASSWORD"] %>
     host: <%= ENV["DB_HOST"] %>
   cache:
